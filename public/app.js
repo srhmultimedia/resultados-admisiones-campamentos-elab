@@ -45,7 +45,8 @@ frm.addEventListener('submit', async e => {
   show('revision', 'Consultando…');          // gris/naranja como estado “loading”
 
   try {
-    const res  = await fetch('/api/check', {
+    const BASE = '/resultados/resultados-admisiones-campamentos-elab';
+    const res  = await fetch(`${BASE}/api/check`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ documento: docI.value.trim() })
