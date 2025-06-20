@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Campamentos E-lab | Explora y descubre</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Tailwind stand-alone (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.css para las animaciones -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/animate.css@4.1.1/animate.min.css" />
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center gap-6
+             bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-2">
+
+  <!-- Título -->
+  <h1 class="text-center text-white font-extrabold leading-tight drop-shadow-lg
+             text-4xl sm:text-5xl md:text-6xl animate__animated animate__fadeInDown">
+    Campamentos&nbsp;E-lab:<br />
+    Explora&nbsp;y&nbsp;descubre
+  </h1>
+
+  <!-- Tarjeta -->
+  <div class="w-full max-w-lg sm:max-w-md
+              bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl ring-1 ring-white/30
+              p-6 sm:p-8 animate__animated animate__fadeInUp">
+    <h2 class="text-2xl sm:text-xl font-bold text-center mb-6 text-gray-800">
+      Verifica tu admisión
+    </h2>
+
+    <form id="frm" class="space-y-4">
+      <input id="doc" required placeholder="Número de documento"
+             class="w-full rounded-xl px-5 py-4 text-lg border border-gray-300
+                    focus:ring-4 focus:ring-indigo-300 outline-none" />
+      <button
+        class="w-full rounded-xl py-4 text-lg font-semibold
+               bg-indigo-600 hover:bg-indigo-700 text-white
+               shadow-md hover:shadow-lg focus:ring-4 focus:ring-indigo-300">
+        Consultar
+      </button>
+    </form>
+
+    <!-- Contenedor del mensaje -->
+    <div id="msg" class="mt-6 flex justify-center"></div>
+  </div>
+
+  <!-- Tu lógica de frontend -->
+  <script src="app.js"></script>
+</body>
+</html>
