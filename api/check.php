@@ -20,13 +20,6 @@ if (!$row) {
     exit;
 }
 
-$msg_no_admitido= if ($row['grado'] === 'Décimo') {
-    $row['nombre']. 'no fuiste admitido. Puedes intentarlo de nuevo en la próxima vigencia.';
-} else {
-    $row['nombre']. 'Lo sentimos, no fuste admitido.';
-}
-
-
 if ($row['admitido'] === 'SI') {
     echo json_encode([
         'status'  => 'admitido',
@@ -36,7 +29,7 @@ if ($row['admitido'] === 'SI') {
 } else {
     echo json_encode([
         'status'  => 'revision',
-        'message' => $msg_no_admitido,
+        'message' => '{$row['nombre']} no fuiste admitido. Puedes inténtarlo de nuevo en la próxima vigencia.',
         'nombre'  => $row['nombre']
     ]);
 }
