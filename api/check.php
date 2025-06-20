@@ -11,7 +11,7 @@ if (!preg_match('/^\d{6,15}$/', $doc)) {
     exit;
 }
 
-$stmt = $db->prepare('SELECT nombre, admitido, grado FROM students WHERE documento = ? LIMIT 1');
+$stmt = $db->prepare('SELECT nombre, admitido FROM students WHERE documento = ? LIMIT 1');
 $stmt->execute([$doc]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
