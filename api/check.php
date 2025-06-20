@@ -22,15 +22,19 @@ if (!$row) {
 }
 
 if ($row['admitido'] === 'SI') {
+    $mensaje = '🎉 Felicitaciones ' . $row['nombre'] . ', has sido admitido';
+
     echo json_encode([
         'status'  => 'admitido',
-        'message' => "🎉 Felicitaciones {$row['nombre']}, has sido admitid@",
+        'message' => $mensaje,
         'nombre'  => $row['nombre']
     ]);
+    exit;
 } else {
+    $mensaje = 'Lo sentimos ' . $row['nombre'] . ', no has sido admitido. Puedes intentarlo en la próxima convocatoria.';
     echo json_encode([
         'status'  => 'revision',
-        'message' => '{$row['nombre']} no fuiste admitido. Puedes inténtarlo de nuevo en la próxima vigencia.',
+        'message' => $mensaje,
         'nombre'  => $row['nombre']
     ]);
 }
