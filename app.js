@@ -11,7 +11,7 @@ const docIn = document.getElementById('doc');
 const msg   = document.getElementById('msg');
 
 /* ---------- Ajusta el prefijo según tu carpeta ---------- */
-const BASE = '/resultados/resultados-admisiones-campamentos-elab';
+const BASE = '/resultados/campamentos-elab/admisiones';
 
 /* ---------- Utilidades de presentación ---------- */
 function show(type, text) {

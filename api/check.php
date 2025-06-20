@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
-//require_once '/home/proyectoexplora/secure-config/config.php';
-require_once '/resultados/campamentos-elab/admisiones/api/config.php';
+
+require_once __DIR__ . '/config.php';
 
 $input = json_decode(file_get_contents('php://input'), true);
 $doc   = $input['documento'] ?? '';
