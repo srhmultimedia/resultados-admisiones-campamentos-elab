@@ -11,7 +11,7 @@ if (!preg_match('/^\d{6,15}$/', $doc)) {
     exit;
 }
 
-$stmt = $db->prepare('SELECT nombre, admitido FROM students WHERE documento = ? LIMIT 1');
+$stmt = $db->prepare('SELECT nombre, admitido, grado FROM students WHERE documento = ? LIMIT 1');
 $stmt->execute([$doc]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -20,16 +20,23 @@ if (!$row) {
     exit;
 }
 
+$msg_no_admitido= if ($row['grado'] === 'Décimo') {
+    $row['nombre']. 'no fuiste admitido. Puedes intentarlo de nuevo en la próxima vigencia.';
+} else {
+    $row['nombre']. 'Lo sentimos, no fuste admitido.';
+}
+
+
 if ($row['admitido'] === 'SI') {
     echo json_encode([
         'status'  => 'admitido',
-        'message' => "🎉 Felicitaciones {$row['nombre']}, has sido admitido",
+        'message' => "🎉 Felicitaciones {$row['nombre']}, has sido admitid@",
         'nombre'  => $row['nombre']
     ]);
 } else {
     echo json_encode([
         'status'  => 'revision',
-        'message' => 'Tu prueba está en revisión. Vuelve a consultar más tarde.',
+        'message' => $msg_no_admitido,
         'nombre'  => $row['nombre']
     ]);
 }
